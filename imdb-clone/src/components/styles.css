@@ -1,0 +1,241 @@
+/* styles.css */
+.page-heading {
+    font-size: 2rem;
+    margin: 0;
+    color: #333; /* Dark text color */
+  }
+  
+  /* Toggle Button Styles */
+  .button-container {
+    position: absolute; /* Position relative to the page */
+    top: 90px; /* Distance from the top of the page */
+    right: 40px; /* Distance from the right edge of the page */
+  }
+
+  .toggle-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: 1px gray solid;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .toggle-btn:hover {
+    background-color: black; /* Darker blue on hover */
+  }
+  
+  .toggle-btn:active {
+    background-color: #004080; /* Even darker blue on click */
+  }
+
+/* Container Styles */
+.all-movies-container {
+    padding: 20px;
+  }
+  
+  .page-heading {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Grid View (default) */
+  .all-movies {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row on large screens */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .movie-card {
+    position: relative; /* To position text and rating over the image */
+    width: 100%; /* Ensures cards take up full width of their grid cell */
+    height: 450px; /* Increased height by 20% from 375px, now 450px */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures that the image fits the card */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire card area */
+  }
+  
+  .movie-card .text-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .movie-card h3 {
+    font-size: 1.3rem; /* Increased font size slightly */
+    margin: 0;
+    font-weight: bold; /* Make title bold */
+  }
+  
+  .movie-card p {
+    font-size: 1.05rem; /* Slightly increased font size for the year */
+    margin-top: 5px;
+    font-weight: bold; /* Make year bold */
+  }
+  
+  /* Rating styling */
+  .rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the rating box */
+    color: #ffd700; /* Gold color for the star */
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 10px; /* Adds some space around the rating */
+    border-radius: 15px; /* Rounded corners */
+    display: flex; /* Display star and rating in a row */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: center; /* Center items horizontally */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Light shadow for the rating box */
+  }
+  
+  .star {
+    margin-right: 5px; /* Space between the star and the rating number */
+  }
+  
+  .rating-value {
+    font-size: 1rem; /* Font size for rating value */
+  }
+  
+  /* For smaller screens, show fewer items per row */
+  @media (max-width: 1200px) {
+    .all-movies {
+      grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .all-movies {
+      grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .all-movies {
+      grid-template-columns: 1fr; /* 1 item per row on small screens */
+    }
+  }
+
+.movie-card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+  
+/* List View */
+.list-view {
+    display: block; /* Block layout for list view */
+    padding: 20px;
+  }
+  
+  .movie-card.list-view-card {
+    position: relative;
+    display: flex; /* Flexbox layout for left-right positioning */
+    width: 100%; /* Full width for list view */
+    height: 350px; /* Adjust height to accommodate synopsis */
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add spacing between cards */
+  }
+  
+  /* Image on the left side (25% width) */
+  .movie-card.list-view-card img {
+    width: 25%; /* Image takes 25% of the card width */
+    height: 100%; /* Full height of the card */
+    object-fit: cover; /* Ensures the image covers the left side of the card */
+    flex-shrink: 0; /* Prevents the image from shrinking */
+  }
+  
+  /* Text on the right side (75% width) */
+  .movie-card.list-view-card .text-content {
+    width: 75%; /* Text section takes 75% of the width */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align text to the top */
+    align-items: flex-start; /* Align text to the left */
+    margin-top: -60px;
+  }
+  
+  /* Title styling */
+  .movie-card.list-view-card h3 {
+    font-size: 2.0rem;
+    margin: 0;
+    font-weight: bold;
+    color: #000; /* Black text color */
+  }
+  
+  /* Year styling */
+  .movie-card.list-view-card p {
+    font-size: 1.50rem;
+    margin-top: 10px; /* Add spacing between title and year */
+    font-weight: bold; /* Bold for the year */
+    color: #000; /* Black text color */
+  }
+  
+  /* Synopsis styling */
+  .movie-card.list-view-card p.synopsis {
+    font-size: 1.50rem; /* Smaller font size for the synopsis */
+    margin-top: 10px; /* Add spacing between year and synopsis */
+    font-weight: normal; /* Normal font weight for synopsis */
+    color: #444; /* Medium text color */
+  }
+  
+  /* Rating styling for List View */
+  .movie-card.list-view-card .rating {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the rating box */
+    color: #ffd700; /* Gold color for the star */
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Light shadow for the rating box */
+  }
+  
+  .movie-card.list-view-card .star {
+    margin-right: 5px; /* Space between the star and the rating number */
+  }
+  
+  .movie-card.list-view-card .rating-value {
+    font-size: 1rem; /* Font size for rating value */
+  }
+
+.movie-card.list-view-card:hover {
+  transform: scale(1.03); /* Slightly enlarge the card */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  transition: all 0.3s ease; /* Smooth transition */
+}
