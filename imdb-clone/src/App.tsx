@@ -13,7 +13,7 @@ const AppContent = () => {
   
   return (
     <div className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
-      <Router>
+      <Router basename="cinema">
         <div>
           <Navbar />
           <Routes>
